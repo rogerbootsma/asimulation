@@ -1,0 +1,352 @@
+{
+  "seeds": 20,
+  "secondsPerSeed": 300,
+  "minPeer": 1.120000000005437,
+  "minObstacle": 0.5880202132650707,
+  "minDistancePer30Seconds": 12.53677731703784,
+  "maxIdleSeconds": 16.939999999999728,
+  "contactFixture": "passed: first-contact position, speed threshold, Ow, recovery",
+  "proximityFixture": "passed: greeting names, hysteresis, pair cooldown, no false Ow",
+  "reports": [
+    {
+      "seed": 1,
+      "travel": [
+        356,
+        376,
+        267,
+        372
+      ],
+      "stats": {
+        "greetings": 35,
+        "goodbyes": 30,
+        "wallRemarks": 12,
+        "hardContacts": 13,
+        "ow": 2,
+        "recoveries": 105
+      }
+    },
+    {
+      "seed": 2,
+      "travel": [
+        378,
+        421,
+        293,
+        372
+      ],
+      "stats": {
+        "greetings": 40,
+        "goodbyes": 19,
+        "wallRemarks": 10,
+        "hardContacts": 18,
+        "ow": 5,
+        "recoveries": 55
+      }
+    },
+    {
+      "seed": 3,
+      "travel": [
+        348,
+        427,
+        313,
+        392
+      ],
+      "stats": {
+        "greetings": 41,
+        "goodbyes": 14,
+        "wallRemarks": 15,
+        "hardContacts": 7,
+        "ow": 0,
+        "recoveries": 29
+      }
+    },
+    {
+      "seed": 7,
+      "travel": [
+        382,
+        415,
+        323,
+        407
+      ],
+      "stats": {
+        "greetings": 35,
+        "goodbyes": 17,
+        "wallRemarks": 13,
+        "hardContacts": 5,
+        "ow": 0,
+        "recoveries": 13
+      }
+    },
+    {
+      "seed": 11,
+      "travel": [
+        340,
+        412,
+        299,
+        383
+      ],
+      "stats": {
+        "greetings": 48,
+        "goodbyes": 26,
+        "wallRemarks": 6,
+        "hardContacts": 21,
+        "ow": 1,
+        "recoveries": 85
+      }
+    },
+    {
+      "seed": 19,
+      "travel": [
+        368,
+        391,
+        300,
+        390
+      ],
+      "stats": {
+        "greetings": 42,
+        "goodbyes": 30,
+        "wallRemarks": 10,
+        "hardContacts": 10,
+        "ow": 1,
+        "recoveries": 66
+      }
+    },
+    {
+      "seed": 31,
+      "travel": [
+        390,
+        419,
+        322,
+        374
+      ],
+      "stats": {
+        "greetings": 31,
+        "goodbyes": 19,
+        "wallRemarks": 12,
+        "hardContacts": 14,
+        "ow": 1,
+        "recoveries": 44
+      }
+    },
+    {
+      "seed": 47,
+      "travel": [
+        365,
+        449,
+        315,
+        379
+      ],
+      "stats": {
+        "greetings": 39,
+        "goodbyes": 22,
+        "wallRemarks": 9,
+        "hardContacts": 9,
+        "ow": 0,
+        "recoveries": 48
+      }
+    },
+    {
+      "seed": 71,
+      "travel": [
+        368,
+        415,
+        320,
+        383
+      ],
+      "stats": {
+        "greetings": 41,
+        "goodbyes": 14,
+        "wallRemarks": 15,
+        "hardContacts": 6,
+        "ow": 0,
+        "recoveries": 28
+      }
+    },
+    {
+      "seed": 97,
+      "travel": [
+        341,
+        387,
+        292,
+        375
+      ],
+      "stats": {
+        "greetings": 44,
+        "goodbyes": 30,
+        "wallRemarks": 11,
+        "hardContacts": 21,
+        "ow": 0,
+        "recoveries": 88
+      }
+    },
+    {
+      "seed": 123,
+      "travel": [
+        338,
+        427,
+        299,
+        365
+      ],
+      "stats": {
+        "greetings": 29,
+        "goodbyes": 23,
+        "wallRemarks": 12,
+        "hardContacts": 13,
+        "ow": 0,
+        "recoveries": 79
+      }
+    },
+    {
+      "seed": 256,
+      "travel": [
+        360,
+        404,
+        300,
+        360
+      ],
+      "stats": {
+        "greetings": 42,
+        "goodbyes": 19,
+        "wallRemarks": 11,
+        "hardContacts": 16,
+        "ow": 0,
+        "recoveries": 68
+      }
+    },
+    {
+      "seed": 512,
+      "travel": [
+        386,
+        441,
+        349,
+        431
+      ],
+      "stats": {
+        "greetings": 31,
+        "goodbyes": 12,
+        "wallRemarks": 10,
+        "hardContacts": 2,
+        "ow": 0,
+        "recoveries": 6
+      }
+    },
+    {
+      "seed": 1024,
+      "travel": [
+        351,
+        428,
+        310,
+        394
+      ],
+      "stats": {
+        "greetings": 42,
+        "goodbyes": 18,
+        "wallRemarks": 17,
+        "hardContacts": 8,
+        "ow": 2,
+        "recoveries": 33
+      }
+    },
+    {
+      "seed": 2026,
+      "travel": [
+        360,
+        398,
+        313,
+        390
+      ],
+      "stats": {
+        "greetings": 45,
+        "goodbyes": 25,
+        "wallRemarks": 10,
+        "hardContacts": 15,
+        "ow": 0,
+        "recoveries": 56
+      }
+    },
+    {
+      "seed": 65535,
+      "travel": [
+        395,
+        426,
+        322,
+        388
+      ],
+      "stats": {
+        "greetings": 35,
+        "goodbyes": 13,
+        "wallRemarks": 18,
+        "hardContacts": 10,
+        "ow": 0,
+        "recoveries": 14
+      }
+    },
+    {
+      "seed": 99999,
+      "travel": [
+        353,
+        420,
+        316,
+        347
+      ],
+      "stats": {
+        "greetings": 40,
+        "goodbyes": 24,
+        "wallRemarks": 15,
+        "hardContacts": 17,
+        "ow": 1,
+        "recoveries": 66
+      }
+    },
+    {
+      "seed": 314159,
+      "travel": [
+        365,
+        391,
+        323,
+        387
+      ],
+      "stats": {
+        "greetings": 50,
+        "goodbyes": 22,
+        "wallRemarks": 13,
+        "hardContacts": 13,
+        "ow": 1,
+        "recoveries": 49
+      }
+    },
+    {
+      "seed": 1234567,
+      "travel": [
+        359,
+        416,
+        303,
+        397
+      ],
+      "stats": {
+        "greetings": 37,
+        "goodbyes": 25,
+        "wallRemarks": 12,
+        "hardContacts": 9,
+        "ow": 1,
+        "recoveries": 41
+      }
+    },
+    {
+      "seed": 4294967295,
+      "travel": [
+        365,
+        422,
+        315,
+        412
+      ],
+      "stats": {
+        "greetings": 29,
+        "goodbyes": 18,
+        "wallRemarks": 12,
+        "hardContacts": 12,
+        "ow": 2,
+        "recoveries": 36
+      }
+    }
+  ]
+}

@@ -3,3 +3,4 @@
 qa/
 *.zip
 node_modules/
+update-site.mjs

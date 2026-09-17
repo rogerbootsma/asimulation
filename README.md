@@ -6,7 +6,7 @@ An independent Metaversal Arts research website about embodied agents and artifi
 
 Static HTML, CSS, and JavaScript in `dist/`. Three.js is vendored with its MIT license. No build step, server-side service, external fonts, analytics, or application cookies.
 
-- `index.html`: live six-agent habitat, research framing, social links.
+- `index.html`: live four-agent habitat, research framing, social links.
 - `app.js`: browser adaptation of selected Blender steering concepts; see `method.html` for limits.
 - `designs.html`: three identity concepts and downloadable brand assets.
 - `brand/`: editable SVGs, X and YouTube profile PNGs, 2560 × 1440 YouTube banner.
@@ -33,6 +33,9 @@ The browser demonstration is rule-based steering and short-lived decaying spatia
 
 ## Checks
 
-The local CPU simulation harness runs actual application simulation code with only the browser rendering layer stubbed. A 300-second deterministic fixture checked finite positions, arena limits, body clearance, continued travel, bounded memory, and reset replay. Browser visual and interaction checks are recorded separately in local QA output. Fixture success does not establish general navigation correctness.
+The local CPU simulation harness runs actual application simulation code with only the rendering layer omitted. A 20-seed, 300-seconds-per-seed deterministic fixture checked finite positions, arena limits, body clearance, continued travel, bounded memory, and deterministic replay. Browser visual and interaction checks are recorded separately in local QA output. Fixture success does not establish general navigation correctness.
 
 Brand export helper `create-brand.mjs` uses Sharp. Exported assets are committed; users do not need the export helper to run or deploy this site.
+
+
+Run the reproducible simulation checks with: node tests/multi-seed.mjs. The checked-in result records this fixture only; temporary near-stationary spells reached about 17 seconds.
