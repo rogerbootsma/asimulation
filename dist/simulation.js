@@ -14,18 +14,18 @@ export function createSimulation(initialSeed=71){
  function dialogue(){
   for(let i=0;i<agents.length;i++)for(let j=i+1;j<agents.length;j++){
    const a=agents[i],b=agents[j],key=`${i}:${j}`,p=pairs.get(key)||{inside:false,nextEnter:0,nextExit:0};
-   const d=Math.hypot(a.x-b.x,a.z-b.z);
+   if(a.externalMotion||b.externalMotion)continue; const d=Math.hypot(a.x-b.x,a.z-b.z);
    if(!p.inside&&d<2.8){p.inside=true;if(time>=p.nextEnter){say(a,`Hi, ${b.name}!`,'greetings');say(b,`Hello, ${a.name}.`,'greetings');p.nextEnter=time+14;}}
    else if(p.inside&&d>3.7){p.inside=false;if(time>=p.nextExit){say(a,`See you, ${b.name}.`,'goodbyes');say(b,`Bye, ${a.name}!`,'goodbyes');p.nextExit=time+14;}}
    pairs.set(key,p);
   }
   const remarks=['Oh my God, a wall.','A little detour.','This way around.','Hello, obstacle.'];
-  for(const a of agents)if(time>=a.wallAfter&&OBSTACLES.some(o=>Math.hypot(a.x-o.x,a.z-o.z)-o.r<1.7)){
+  for(const a of agents)if(!a.externalMotion&&!(time<a.pauseUntil)&&time>=a.wallAfter&&OBSTACLES.some(o=>Math.hypot(a.x-o.x,a.z-o.z)-o.r<1.7)){
    if(say(a,remarks[Math.floor(random()*remarks.length)],'wallRemarks'))a.wallAfter=time+18+random()*12;
   }
  }
  function step(dt=.02){time+=dt;for(const a of agents){
-  a.clock+=dt;if(!a.goal||Math.hypot(a.x-a.goal.x,a.z-a.goal.z)<1.5||a.clock>15||a.blocked>1.2){if(a.blocked>1.2)stats.recoveries++;goal(a);}
+  if(a.externalMotion||time<a.pauseUntil){a.speed=0;continue;} a.clock+=dt;if(a.mode!=='approach'&&(!a.goal||Math.hypot(a.x-a.goal.x,a.z-a.goal.z)<1.5||a.clock>15||a.blocked>1.2)){if(a.blocked>1.2)stats.recoveries++;goal(a);}
   let dx=a.goal.x-a.x,dz=a.goal.z-a.z,len=Math.hypot(dx,dz);dx/=len||1;dz/=len||1;
   let bx=0,bz=0;for(const b of agents){if(a===b)continue;const x=a.x-b.x,z=a.z-b.z,d=Math.hypot(x,z),range=1.7+a.space*3;if(d<range){bx+=x/(d||1)*(1-d/range)*1.6;bz+=z/(d||1)*(1-d/range)*1.6;}}
   const bias=Math.hypot(bx,bz);if(bias>.75){bx*=.75/bias;bz*=.75/bias;}dx+=bx;dz+=bz;

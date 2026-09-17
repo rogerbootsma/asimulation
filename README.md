@@ -39,3 +39,5 @@ Brand export helper `create-brand.mjs` uses Sharp. Exported assets are committed
 
 
 Run the reproducible simulation checks with: node tests/multi-seed.mjs. The checked-in result records this fixture only; temporary near-stationary spells reached about 17 seconds.
+
+Ramp and conversation fixtures: node tests/excursions.mjs. The browser uses encounters.js over the planar steering core; excursions and jokes are authored, not learned.
