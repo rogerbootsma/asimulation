@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.min.js';
-import {OBSTACLES} from './simulation.js';
-import {createSimulation,RAMP} from './encounters.js';
+import {OBSTACLES} from './simulation.js?v=five-agents-1';
+import {createSimulation,RAMP} from './encounters.js?v=five-agents-1';
 import {layoutBubbles,pointerStart} from './bubble-layout.js';
 const canvas=document.querySelector('#world');
 try {

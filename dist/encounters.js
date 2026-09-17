@@ -1,5 +1,5 @@
 // Authored excursions and conversations layered over the planar steering study.
-import {createSimulation as createBase,OBSTACLES} from './simulation.js';
+import {createSimulation as createBase,OBSTACLES} from './simulation.js?v=five-agents-1';
 export const RAMP={start:11.5,end:6,x:4,z:3,h:1.3,width:1.8};
 const UP=['Have I left Flatland?','Am I a three-dimensional creature now?','Am I evolving, or just going uphill?','Is this enlightenment? The view helps.','A higher plane! Same old questions.','My personal growth has a vertical axis.','I have transcended the floor. Temporarily.','Perspective: now with altitude.'];
 const DOWN=['Back in Flatland. Oh well, this is life.','Enlightenment had a gravity clause.','Let’s explore my shadow side. It’s down here.','Grounded again. My therapist would approve.','That was a leap of faith. With coordinates.','Back to reality. Or its simulation.','Spiritual elevation: temporary. Curiosity: ongoing.','I have integrated my higher self. Into the floor.'];
