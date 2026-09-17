@@ -6,7 +6,7 @@ An independent Metaversal Arts research website about embodied agents and artifi
 
 Static HTML, CSS, and JavaScript in `dist/`. Three.js is vendored with its MIT license. No build step, server-side service, external fonts, analytics, or application cookies.
 
-- `index.html`: live four-agent habitat, research framing, social links.
+- `index.html`: live five-agent habitat, research framing, social links.
 - `app.js`: browser adaptation of selected Blender steering concepts; see `method.html` for limits.
 - `designs.html`: three identity concepts and downloadable brand assets.
 - `brand/`: editable SVGs, X and YouTube profile PNGs, 2560 × 1440 YouTube banner.
@@ -38,6 +38,6 @@ The local CPU simulation harness runs actual application simulation code with on
 Brand export helper `create-brand.mjs` uses Sharp. Exported assets are committed; users do not need the export helper to run or deploy this site.
 
 
-Run the reproducible simulation checks with: node tests/multi-seed.mjs. The checked-in result records this fixture only; temporary near-stationary spells reached about 17 seconds.
+Run the reproducible simulation checks with: node tests/multi-seed.mjs. The checked-in result records this fixture only; temporary near-stationary spells reached about 21 seconds.
 
 Ramp and conversation fixtures: node tests/excursions.mjs. The browser uses encounters.js over the planar steering core; excursions and jokes are authored, not learned.

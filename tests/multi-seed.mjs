@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 const reports=[];let minPeer=Infinity,minObstacle=Infinity,minWindow=Infinity,maxIdle=0;
 for(const seed of [1,2,3,7,11,19,31,47,71,97,123,256,512,1024,2026,65535,99999,314159,1234567,4294967295]){
- const sim=createSimulation(seed),idle=[0,0,0,0];let prev=sim.agents.map(a=>a.distance);
+ const sim=createSimulation(seed),idle=Array(sim.agents.length).fill(0);let prev=sim.agents.map(a=>a.distance);
  for(let tick=0;tick<15000;tick++){
   sim.step();for(const a of sim.agents){assert.ok(Number.isFinite(a.x)&&Number.isFinite(a.z));assert.ok(Math.hypot(a.x,a.z)<=15.841);assert.ok(a.memory.size<=400);idle[a.i]=a.speed<.05?idle[a.i]+.02:0;maxIdle=Math.max(maxIdle,idle[a.i]);for(const o of OBSTACLES){const d=Math.hypot(a.x-o.x,a.z-o.z)-o.r;minObstacle=Math.min(minObstacle,d);assert.ok(d>=.56-1e-7);}for(const b of sim.agents.slice(a.i+1)){const d=Math.hypot(a.x-b.x,a.z-b.z);minPeer=Math.min(minPeer,d);assert.ok(d>=1.12-1e-7);}}
   if((tick+1)%1500===0){for(const a of sim.agents){const moved=a.distance-prev[a.i];minWindow=Math.min(minWindow,moved);assert.ok(moved>3,`seed ${seed}: ${a.name} traveled only ${moved} in 30s`);prev[a.i]=a.distance;}}

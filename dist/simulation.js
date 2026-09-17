@@ -1,12 +1,12 @@
 // Authored movement and dialogue, not neural learning or emotional inference.
-export const NAMES=['Spring','Summer','Autumn','Winter'];
+export const NAMES=['Spring','Summer','Autumn','Winter','Night'];
 export const OBSTACLES=[{x:-5,z:-3,r:2.1,h:1.7},{x:4,z:3,r:2.7,h:1.3},{x:6,z:-7,r:1.4,h:2.2},{x:-7,z:7,r:1.2,h:2.7},{x:-.5,z:-10,r:1,h:1}];
 const clamp=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
 export function createSimulation(initialSeed=71){
  let seed=initialSeed>>>0,time=0;const pairs=new Map();
  const stats={greetings:0,goodbyes:0,wallRemarks:0,hardContacts:0,ow:0,recoveries:0};
  const random=()=>{seed=(Math.imul(1664525,seed)+1013904223)>>>0;return seed/4294967296;};
- const agents=NAMES.map((name,i)=>({name,i,x:Math.cos(i*Math.PI/2)*12,z:Math.sin(i*Math.PI/2)*12,angle:i*Math.PI/2+Math.PI,speed:0,goal:null,clock:0,blocked:0,distance:0,curiosity:[.65,.9,.35,.75][i],space:[.55,.3,.9,.65][i],memory:new Map(),history:[],bubble:'',bubbleUntil:0,talkAfter:0,wallAfter:3+i*3,contactAfter:0,turnRecovery:false}));
+ const agents=NAMES.map((name,i)=>({name,i,x:Math.cos(i*Math.PI*2/5)*12,z:Math.sin(i*Math.PI*2/5)*12,angle:i*Math.PI*2/5+Math.PI,speed:0,goal:null,clock:0,blocked:0,distance:0,curiosity:[.65,.9,.35,.75,.55][i],space:[.55,.3,.9,.65,.7][i],memory:new Map(),history:[],bubble:'',bubbleUntil:0,talkAfter:0,wallAfter:3+i*3,contactAfter:0,turnRecovery:false}));
  function clear(x,z,pad=.56){return Math.hypot(x,z)<16.4-pad&&OBSTACLES.every(o=>Math.hypot(x-o.x,z-o.z)>o.r+pad);}
  function familiar(a,x,z){const row=a.memory.get(`${Math.floor(x/3)},${Math.floor(z/3)}`);return row?row.value*Math.exp(-(time-row.t)/45):0;}
  function goal(a){let best=null,score=-Infinity;for(let k=0;k<24;k++){const theta=random()*Math.PI*2,r=3+random()*12,x=Math.cos(theta)*r,z=Math.sin(theta)*r;if(!clear(x,z,1))continue;const d=Math.hypot(x-a.x,z-a.z),s=a.curiosity*3/(1+familiar(a,x,z))+.5*random()+Math.min(d,8)*.035;if(s>score){score=s;best={x,z};}}a.goal=best||{x:0,z:8};a.clock=0;a.blocked=0;}
