@@ -22,4 +22,4 @@ Source: [GitHub custom-domain documentation](https://docs.github.com/en/pages/co
 
 YouTube banner is 2560 × 1440, with central text and mark constrained to the mobile crop, under 6 MB. Source: [YouTube channel branding](https://support.google.com/youtube/answer/10456525).
 
-Configured 2026-09-17: GitHub Pages custom domain set to asimulation.io; Namecheap BasicDNS apex A records and www CNAME configured. HTTPS certificate provisioning is pending verification.
+Configured 2026-09-17: GitHub Pages custom domain set to asimulation.io; Namecheap BasicDNS apex A records and www CNAME configured. HTTPS certificate verified and Enforce HTTPS enabled. Initial provisioning stalled; removing and re-saving the same custom domain restarted the request successfully.

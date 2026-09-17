@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {classifySlope,slopeInterest,surfaceHeight,RAMP_SURFACE} from '../dist/affordances.js';
+const slope=classifySlope(RAMP_SURFACE);assert.ok(slope);assert.ok(slope.angle>13&&slope.angle<14);
+assert.equal(classifySlope({low:[0,0,0],high:[0,3,0],width:2}),null,'vertical wall');
+assert.equal(classifySlope({low:[0,1,0],high:[5,2,0],width:2}),null,'disconnected surface');
+assert.equal(classifySlope({low:[0,0,0],high:[5,0,0],width:2}),null,'flat ground is not an incline');
+assert.equal(classifySlope({...RAMP_SURFACE,width:.4}),null,'insufficient body clearance');
+assert.equal(classifySlope({low:[0,0,0],high:[1,2,0],width:2}),null,'too steep');
+assert.ok(classifySlope({low:[0,0,0],high:[0,2,8],width:2}),'rotated slope');
+const interests=[15,10,6,3,1].map(d=>slopeInterest({x:11.5+d,z:3,curiosity:.6},slope));
+for(let i=1;i<interests.length;i++)assert.ok(interests[i]>interests[i-1]);
+assert.equal(surfaceHeight(11.5,3,slope),0);assert.equal(surfaceHeight(6,3,slope),1.3);assert.equal(surfaceHeight(8.75,3,slope),.65);
+console.log('Surface geometry, rejection cases, rotation, height and proximity gradient passed.');

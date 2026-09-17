@@ -12,6 +12,7 @@ for(const seed of [1,7,19,71,123,2026,99999,314159]){
   }previous=s.agents.map(a=>({...a}));
  }
  assert.ok(s.stats.landings>=3,`seed ${seed}: too few visits ${JSON.stringify(s.stats)}`);assert.ok(s.stats.conversations>0);assert.ok(maxY>2);assert.ok(s.stats.dwellTimes.every(t=>t>=10&&t<=30));
+ assert.ok(s.stats.memoryGreetings>0,'recent encounters affect greetings');assert.ok(s.stats.witnesses>0&&s.stats.reactions>0,'jumps attract spectators and reactions');
  for(const state of ['boarding','climbing','platform','edge','jumping','ground'])assert.ok(states.has(state));
  reports.push({seed,...s.stats,maxY,maxStep,minPeer});
 }
@@ -23,4 +24,7 @@ for(let i=0;i<200;i++)chat.step();assert.deepEqual([a.x,a.z,b.x,b.z],position);a
 for(let i=0;i<200;i++)chat.step();assert.equal(chat.stats.conversations,1);assert.ok(b.bubble.length>5);
 for(let i=0;i<250;i++)chat.step();assert.ok(chat.time>a.pauseUntil);assert.ok(chat.time<b.chatAfter);
 const one=createSimulation(19),two=createSimulation(19);for(let i=0;i<5000;i++){one.step();two.step();}assert.deepEqual(one.agents,two.agents);
+const expiry=createSimulation(5);for(const a of expiry.agents){a.mode='fixture';a.externalMotion=true;}expiry.agents[0].encounters.set(1,0);expiry.agents[0].seenJumps.set(2,0);
+for(let i=0;i<4400;i++)expiry.step();assert.equal(expiry.agents[0].encounters.size,1);
+for(let i=0;i<110;i++)expiry.step();assert.equal(expiry.agents[0].encounters.size,0);assert.equal(expiry.agents[0].seenJumps.size,0);
 console.log(JSON.stringify(reports,null,2));
